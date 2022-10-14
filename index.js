@@ -1,37 +1,15 @@
 const TelegramApi = require('node-telegram-bot-api')
 
+const gameOptions = require('./options')
+const commands = require('./commands')
+
 const token = '5667988766:AAEpeYwmobC0o2og1gmdHwC3eRbNzHM6moc'
 
 const bot = new TelegramApi(token, { polling: true })
 
-bot.setMyCommands([
-  { command: '/start', description: 'Начало' },
-  { command: '/info', description: 'Информация' },
-  { command: '/delay_msg', description: 'Сообщение с задержкой' },
-  { command: '/game', description: 'Игра "Угадай число"' },
-])
+bot.setMyCommands(commands)
 
 const chats = {}
-
-const gameOptions = {
-  numbers: {
-    reply_markup: JSON.stringify({
-      inline_keyboard: [
-        [{ text: 1, callback_data: 1 }, { text: 2, callback_data: 2 }, { text: 3, callback_data: 3 }],
-        [{ text: 4, callback_data: 4 }, { text: 5, callback_data: 5 }, { text: 6, callback_data: 6 }],
-        [{ text: 7, callback_data: 7 }, { text: 8, callback_data: 8 }, { text: 9, callback_data: 9 }],
-        [{ text: 0, callback_data: 0 }],
-      ],
-    })
-  },
-  playAgain: {
-    reply_markup: JSON.stringify({
-      inline_keyboard: [
-        [{ text: 'Попробовать еще', callback_data: 'again' }],
-      ],
-    })
-  },
-}
 
 const gameStart = (chatId) => {
   const randomNumber = Math.floor(Math.random() * 10)
