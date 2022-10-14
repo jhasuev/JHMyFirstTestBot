@@ -1,0 +1,25 @@
+{
+  "name": "jhmyfirsttestbot",
+  "version": "1.0.0",
+  "description": "telegram bot [learning]",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhasuev/JHMyFirstTestBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhasuev/JHMyFirstTestBot/issues"
+  },
+  "homepage": "https://github.com/jhasuev/JHMyFirstTestBot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.59.0",
+    "nodemon": "^2.0.20"
+  }
+}
